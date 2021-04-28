@@ -47,10 +47,15 @@
 #    [9, 83, 74], 8 --> -1
 #    [6, 4, 7, 9, 7, 8, 2, 4, 3], 7 --> 2
 
-def 
+def indexOf(arr, target):
+    for i in range(len(arr)):
+        if arr[i]==target:
+           return i
+    return -1
 
-# Time Complexity:
-# Auxiliary Space Complexity:
+
+# Time Complexity: O(N) since there is one loop
+# Auxiliary Space Complexity: n (finding the number that matches target) +n(input array) + 1(input_target) = 2n+1
 
 def index_of(arr, target):
     for i in range(len(arr)):
@@ -72,8 +77,19 @@ def index_of(arr, target):
 #    [9, 83, 74] --> [74]
 #    [6, 4, 7, 9, 7, 8, 2, 4, 3] --> [6, 4, 8, 2, 4]
 
-# Time Complexity:
-# Auxiliary Space Complexity:
+
+def Evens(arr):
+    output=[]
+    for i in range(len(arr)):
+        #if number divided by 2 remainder is zero, it is even number
+        if arr[i]%2==0:
+            output.append(arr[i])
+    return output
+             
+            
+
+# Time Complexity: o(n) there is one for loop
+# Auxiliary Space Complexity: 1(results) + 1 (for loop) + n(appending n items) + n(input)= 2n+2
 
 def evens(arr):
     results = []
@@ -96,9 +112,16 @@ def evens(arr):
 #   [1, 2, 3, 4, 5] --> 15
 #   [0, 1, -1] --> 0
 #   [] --> 0
+
+
+    def Sum(arr):
+        sum=0
+        for i in range(len(arr)):
+            sum+=arr[i]
+        return sum
 #
-# Time Complexity:
-# Auxiliary Space Complexity:
+# Time Complexity: o(n) one for loop
+# Auxiliary Space Complexity: 1 (sum), 1(for loop), n(adding all numbers in array)+n(input size) = 2n+2
 
 def sum(arr):
     total = 0
@@ -121,9 +144,13 @@ def sum(arr):
 #   [12, 25, 40], [20, 37, 45] --> [12, 20, 25, 37, 40, 45]
 #   [10, 13, 24], [12, 35] --> [10, 12, 13, 24, 25]
 #
-# Time Complexity:
-# Auxiliary Space Complexity:
-
+def mergeArrays(arr1, arr2):
+    all = []
+    for i in range(len(arr1)):
+        all.append(arr1[i]))
+    for j in range(len(arr2)):
+        all.append(arr2[j])
+    return sorted(all)
 
 def merge_arrays(left, right):
     sorted_array = []
@@ -142,6 +169,8 @@ def merge_arrays(left, right):
         sorted_array.extend(left[p1:])
     return sorted_array
 
+# Time Complexity: o(n)
+# Auxiliary Space Complexity: 1(p1), 1(p2) +2n(adding to sorting array)+ n(while), 2n(2 input arrays) = 5n +2
 
 
 #    Binary Search
@@ -158,9 +187,26 @@ def merge_arrays(left, right):
 #    [1, 3, 4, 5, 8, 9], 5 --> 3
 #    [5, 7, 10, 12, 14], 7 --> 1
 #    [2, 4, 8, 9, 15], 3 --> -1
-#
-# Time Complexity:
-# Auxiliary Space Complexity:
+
+
+def binarysearch(arr, val):
+    low = 0
+    high = len(arr)-1
+    while low <= high:
+        mid = (low+high)/2
+        
+    if arr[mid]> val:
+        high=mid-1
+    elif arr[mid]< val:
+        low = mid+1
+     else:
+        return mid
+    return -1
+     
+      
+    
+# Time Complexity: log(n)
+# Auxiliary Space Complexity: input array n, input val 1, low =1, high= 1, while n = 2n+3
 
 def binary_search(arr, val):
     low = 0
@@ -189,8 +235,8 @@ def binary_search(arr, val):
 #   1 --> 1 (1)
 #   9 --> 362880 (9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1)
 
-# Time Complexity:
-# Auxiliary Space Complexity:
+# Time Complexity: n!
+# Auxiliary Space Complexity: n? idk
 
 def factorial(n):
     if n == 1:
@@ -199,8 +245,8 @@ def factorial(n):
 
 
 
-# Time Complexity:
-# Auxiliary Space Complexity:
+# Time Complexity: o(1)
+# Auxiliary Space Complexity: n+1
 def first_times_last(arr):
     result = None
     if len(arr) < 2:
@@ -209,8 +255,8 @@ def first_times_last(arr):
     return result
 
 
-# Time Complexity:
-# Auxiliary Space Complexity:
+# Time Complexity:2n
+# Auxiliary Space Complexity: 4n
 def most_frequent_occurrence(str):
     lower_str = str.lower()
     letters = {}
@@ -229,8 +275,8 @@ def most_frequent_occurrence(str):
     return most_frequent[0]
 
 
-# Time Complexity:
-# Auxiliary Space Complexity:
+# Time Complexity: n^2
+# Auxiliary Space Complexity: 3n
 def print_unordered_pairs(arr):
     for i in range(0, len(arr)):
         for j in range(i + 1, len(arr)):
@@ -238,8 +284,8 @@ def print_unordered_pairs(arr):
 
 # Make Combined Matrix
 #
-# Time Complexity:
-# Auxiliary Space Complexity:
+# Time Complexity:n^2
+# Auxiliary Space Complexity:4n
 def make_combined_matrix(list_one, list_two):
     result = []
     for i in range(0, len(list_one)):
@@ -252,8 +298,8 @@ def make_combined_matrix(list_one, list_two):
 
 # Nth Fibonacci
 #
-# Time Complexity:
-# Auxiliary Space Complexity:
+# Time Complexity: n
+# Auxiliary Space Complexity: 2n
 def nth_fibonacci(n):
     result = [0, 1]
     for i in range(1, n):
@@ -263,8 +309,8 @@ def nth_fibonacci(n):
 
 # Nth Fibonacci - the return
 #
-# Time Complexity:
-# Auxiliary Space Complexity:
+# Time Complexity: 2^n
+# Auxiliary Space Complexity: 3n
 def nth_fibonacci(n):
     cache = {}
 
