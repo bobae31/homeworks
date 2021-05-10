@@ -40,26 +40,70 @@
 #  Example:   [3,9,1,4,7] --> [1,3,4,7,9]
 #
 
+#Insertion Sort is a simple comparison based sorting algorithm. It inserts every array element into its proper position. 
+#In i-th iteration, previous (i-1) elements (i.e. subarray Arr[1:(i-1)]) are already sorted, 
+#and the i-th element (Arr[i]) is inserted into its proper place in the previously sorted subarray. 
 
 # Time Complexity:
 # Auxiliary Space Complexity:
 def insertion_sort(input):
     # YOUR WORK HERE
-    pass
+    #strting fom the 2nd element
+    for i in range(1, len(input)):
+        rest = input[i]
+        # to compare with the first element
+        j = i-1
+        #if the first element is larger than the rest swap
+        while j >=0 and rest < input[j]:
+            #swap
+            input[j+1] = input[j]
+            #decrement j
+            j-=1
+        input[j+1] = rest
+    return input
 
 
 # Time Complexity:
 # Auxiliary Space Complexity:
+#Selection sort selects i-th smallest element and places at i-th position. This algorithm divides the array into two parts: sorted (left) and unsorted (right) subarray.
+#It selects the smallest element from unsorted subarray and places in the first position of that subarray (ascending order). It repeatedly selects the next smallest element. 
+
 def selection_sort(input):
     # YOUR WORK HERE
-    pass
+    # find min and pace it to the first 
+    for i in range(len(input)):
+        min_i = i
+        # loop through the rest
+        for j in range(i+1, (len(input))):
+            #if there is min, update min index
+            if input[min_i] > input[j]:
+                min_i = j
+        #swap with the minvalue
+        input[i], input[min_i] = input[min_i], input[i]    
+    return input
 
 
 # Time Complexity:
+#Best Case Sorted array as input. Or almost all elements are in proper place. [ O(N) ]. O(1) swaps.
+#Worst Case: Reversely sorted / Very few elements are in proper place. [ O(N2) ] . O(N2) swaps.
+#Average Case: [ O(N2) ] . O(N2) swaps.
 # Auxiliary Space Complexity:
+#Bubble sort repeatedly compares and swaps(if needed) adjacent elements in every pass. 
+#In i-th pass of Bubble Sort (ascending order), last (i-1) elements are already sorted, and i-th largest element is placed at (N-i)-th position, i.e. i-th last position. 
+
+
+
 def bubble_sort(input):
     # YOUR WORK HERE
-    pass
+    # traverse the entire list
+    for i in range(len(input)):
+        # loop through the rest
+        for j in range(0, (len(input)-i-1)):
+            #if j+1 smaller than j, swap
+            
+            if input[j] > input[j+1]:
+                input[j+1], input[j] = input[j], input[j+1]
+    return input
 
 
 # ###########################################################
@@ -79,6 +123,7 @@ import random
 # input: test {Function} - performs a set of operations and returns a boolean
 #        indicating if test passed
 # output: {None}
+       
 def expect(count, name, test):
     if (count is None or not isinstance(count, list) or len(count) != 2):
         count = [0, 0]
